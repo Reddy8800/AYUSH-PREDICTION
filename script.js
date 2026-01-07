@@ -1,22 +1,13 @@
-let timeLeft = 30;
-const timerEl = document.getElementById("timer");
-const circle = document.querySelector(".progress-ring__circle");
-const circumference = 2 * Math.PI * 60;
+document.addEventListener("DOMContentLoaded", function () {
 
-circle.style.strokeDasharray = circumference;
+  let time = 60;
+  const counter = document.getElementById("countdown");
 
-function setProgress(time) {
-    const offset = circumference - (time / 30) * circumference;
-    circle.style.strokeDashoffset = offset;
-}
-
-const countdown = setInterval(() => {
-    timeLeft--;
-    timerEl.innerText = timeLeft;
-    setProgress(timeLeft);
-
-    if (timeLeft <= 0) {
-        clearInterval(countdown);
-        window.location.href = "https://t.me/+MExdRKm8fRllOGRl";
+  setInterval(() => {
+    if (time > 0) {
+      time--;
+      counter.innerText = time;
     }
-}, 1000);
+  }, 1000);
+
+});
